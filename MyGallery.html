@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style type="text/css">
+
+  * {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  .main {
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 50px;
+    word-break: break-all;
+  }
+
+  .row {
+    margin: 10px -16px;
+  }
+
+  .row, .row > .column {
+    padding: 10px;
+  }
+
+  .column {
+    float: left;
+    width: 25%;
+    display: none;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .content {
+    background-color: #c29d84;
+    padding: 6px;
+  }
+
+  .show {
+    display: block;
+  }
+
+  .button {
+    border: 2px solid black;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #e2d1c5;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: #ba9073;
+  }
+
+  .button.active {
+    background-color: #2d1b08;
+    color: white;
+  }
+
+   .block {
+     display: block;
+     width: 100%;
+     height: 100px;
+     background-color: #261a12
+   }
+
+  .in_block {
+    width:1000px;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    background-color: #261a12;
+   }
+
+   .zoom {
+     width: 600px;
+     height: auto;
+     transition: transform ease-in-out 0.5s;
+   }
+
+   .zoom:hover {
+     transform: scale(1.3);
+   }
+
+  </style>
+
+<meta charset="UTF-8">
+<title>Ryan's Fake Gallery</title>
+</head>
+
+  <div class="block" style=" margin-top: 0%">
+    <div class="in_block">
+      <h1 class="heading" style="color: #936748">Ryan's Fake Gallery</h1>
+    </div>
+  </div>
+
+<body style="background-color:#eaded6;">
+
+<div id="theButtonContainer">
+  <button class="button active" onclick="filterFunc('all')"> Display All Images!</button>
+  <button class="button" onclick="filterFunc('birds')"> Only Bird Photos! </button>
+  <button class="button" onclick="filterFunc('VidArt')"> Only Videogame Art! </button>
+  <button class="button" onclick="filterFunc('Movi')"> Only Cool Movie Posters! </button>
+  <button class="button" onclick="filterFunc('Book')"> Only Cool Book Covers! </button>
+  <button class="button" onclick="filterFunc('RegArt')"> Only "Regular" Art! </button>
+</div>
+
+<h2 id="replaceME" style="color: #241401"> </h2>
+
+<!-- This is the gallery -->
+
+<div class="row" >
+
+ <div class="column birds">
+  <div class="content">
+   <img class="zoom" src="bird 1.jpg" alt="Cockatiel" style="width:100%">
+    <h3>Cockatiel</h3>
+   <p>This is a photo of my pet parrot, Torizo, eating a flaming hot Cheeto... just as a treat though don't feed parrots too much human food. </p>
+  </div>
+ </div>
+
+ <div class="column birds" class="zoom" >
+  <div class="content" class="zoom">
+   <img class="zoom" src="bird 2.png" alt="Raven" style="width:100%">
+    <h3>Raven</h3>
+   <p>This is a photo of a cool little Raven with an open beak. Is he screaming? Is he just making a funny face? Who knows. </p>
+  </div>
+ </div>
+
+ <div class="column birds">
+  <div class="content">
+   <img class="zoom" src="bird 3.png" alt="Cardinal" style="width:100%">
+    <h3>Cardinal</h3>
+   <p>A nice photo of a red cardinal, I found this on a copyright free photo website. I love these little red birds.  </p>
+  </div>
+ </div>
+
+ <div class="column birds" class="myModal" class="modal">
+  <div class="content" class="myModal" class="modal">
+   <img class="zoom" class="myImg" src="bird 4.jpg" alt="Cardinal" style="width:100%">
+    <h3>Mountain Chickadee</h3>
+   <p>A tiny chickadee sitting on a small pile of snow, but to him it would be a hill of snow. Its camouflage is pretty bad, it really stand out.</p>
+  </div>
+ </div>
+
+  <div class="column birds">
+    <div class="content">
+      <img class="zoom" src="bird 5.jpg" alt="Cardinal" style="width:100%">
+      <h3>Sand Hill Crane</h3>
+      <p>A cool crane standing among the tall grass. This photo was taken from a public domain Yellowstone website that hosts bird photos.  </p>
+    </div>
+  </div>
+
+  <div class="column birds">
+    <div class="content">
+      <img class="zoom" src="bird 6.jpg" alt="Cardinal" style="width:100%">
+      <h3>A Dipper</h3>
+      <p>A small dipper standing on a rock covered in algae, do you think he's going to take a dip in the water? </p>
+    </div>
+  </div>
+
+  <div class="column birds">
+    <div class="content">
+      <img class="zoom" src="bird 7.jpg" alt="Cardinal" style="width:100%">
+      <h3>Blue Grouse</h3>
+      <p> This blue grouse looks surprisingly not blue. Moreso brown and gray. What a liar.  </p>
+    </div>
+  </div>
+
+  <div class="column birds">
+    <div class="content">
+      <img class="zoom" src="bird 8.jpg" alt="Cardinal" style="width:100%">
+      <h3>Broad Tailed Hummingbird</h3>
+      <p> Hummingbirds flap their wings so fast it can be challenging to take photos of them without their wings blurring. Just take a look.  </p>
+    </div>
+  </div>
+
+  <div class="column birds">
+    <div class="content">
+      <img class="zoom" src="bird 9.jpg" alt="Cardinal" style="width:100%">
+      <h3>Screech Owl</h3>
+      <p>A funny photo of a screech owl, their eyes are absolutely MASSIVE. I mean just LOOK AT HIM.  </p>
+    </div>
+  </div>
+
+  <div class="column birds">
+    <div class="content">
+      <img class="zoom" src="bird 10.jpg" alt="Cardinal" style="width:100%">
+      <h3>White Pelicans</h3>
+      <p>A purple tinted photo of some white pelicans, I would correct the colors manually but this looks cooler. </p>
+    </div>
+  </div>
+
+  <div class="column birds">
+    <div class="content">
+      <img class="zoom" src="bird 11.jpg" alt="Cardinal" style="width:100%">
+      <h3>Male Mountain Bird</h3>
+      <p>Isn't it odd that a bird that doesn't have the word "blue" in its name is actually blue. </p>
+    </div>
+  </div>
+
+  <div class="column birds">
+    <div class="content">
+      <img class="zoom" src="bird 12.jpg" alt="Cardinal" style="width:100%">
+      <h3>Yellow Bellied Sap Sucker</h3>
+      <p>I have a feeling that whoever named this bird was in a particularly bad mood. </p>
+    </div>
+  </div>
+
+<!-- VIDEOGAME ART -->
+
+  <div class="column VidArt">
+    <div class="content">
+      <img class="zoom" src="Game 1.png" alt="CastleVania" style="width:100%">
+      <h3>CastleVania Symphony of the Night</h3>
+      <p>One of the coolest pieces of cover art for a game... in reality it's the cover art from a game collection that looks vastly better than the original art.  </p>
+    </div>
+  </div>
+
+  <div class="column VidArt">
+    <div class="content">
+      <img class="zoom" src="Game 2.png" alt="Bloodstained" style="width:100%">
+      <h3>Bloodstained Ritual of the Night</h3>
+      <p>A cool game I got for $15 in 2019 and fell in love with. It's just like CastleVania but it came out 20 years later or something. </p>
+    </div>
+  </div>
+
+  <div class="column VidArt">
+    <div class="content">
+      <img class="zoom" src="Game 3.jpg" alt="Sonic" style="width:100%">
+      <h3>Sonic Mania</h3>
+      <p>A pretty cool piece of cover art for a game, but the only way you'd ever see it was if you took it out of the box and turned it inside out. </p>
+    </div>
+  </div>
+
+  <div class="column VidArt">
+    <div class="content">
+      <img class="zoom" src="Game 4.jpg" alt="Souls" style="width:100%">
+      <h3>Demon's Souls</h3>
+      <p> A game that revolutionized the game industry, but it didn't sell as well as the "sequel" Dark Souls so everyone gives the credit to that one instead. What a shame, the atmosphere and artstyle of this game was fantastic, and the music was very unique and understated.  </p>
+    </div>
+  </div>
+
+  <div class="column VidArt">
+    <div class="content">
+      <img class="zoom" src="Game 5.jpg" alt="Mega" style="width:100%">
+      <h3>Mega Man</h3>
+      <p>One of the most infamously bad pieces of game cover art. I'm surprised that this game sold at all considering people had to see it and decide "yeah I want to play this."</p>
+    </div>
+  </div>
+
+  <div class="column VidArt">
+    <div class="content">
+      <img class="zoom" src="Game 6.png" alt="Pizza" style="width:100%">
+      <h3>Pizza Tower</h3>
+      <p> A game that I eagarly wait for about 5 years to play. It's very polished and incredibly well animated, it looks like a 90's cartoon. </p>
+    </div>
+  </div>
+
+  <div class="column VidArt">
+    <div class="content">
+      <img class="zoom" src="Game 7.jpg" alt="MGS" style="width:100%">
+      <h3>Metal Gear Solid 3</h3>
+      <p> A great game that takes place in a fake rainforest in Russia during the cold war. I have no idea what they were thinking with this one it's odd</p>
+    </div>
+  </div>
+
+  <div class="column VidArt">
+    <div class="content">
+      <img class="zoom" src="Game 8.jpg" alt="Resi" style="width:100%">
+      <h3>Resident Evil Remake HD Remaster</h3>
+      <p> One of the best horror games ever made, even if it is just a remake of the original playstation version. They just don't make them like this anymore. </p>
+    </div>
+  </div>
+
+  <div class="column VidArt">
+    <div class="content">
+      <img class="zoom" src="Game 9.png" alt="Katamari" style="width:100%">
+      <h3>Katamari Damacy</h3>
+      <p> An odd game about rolling up everyday objects and people into a ball and launching them into space. This one has great music as well, I'd recommend Gin and Tonic as its nice and jazzy. </p>
+    </div>
+  </div>
+
+  <div class="column VidArt">
+    <div class="content">
+      <img class="zoom" src="Game 10.jpg" alt="Metroid" style="width:100%">
+      <h3>Super Metroid</h3>
+      <p> The best videogame ever made (in my opinion). It was great music, revolutionary gameplay, a nice story told without dialogue, and cool aliens. Videogame developers have tried to replicate this game's perfect design, and none have succeeded. </p>
+    </div>
+  </div>
+
+  <div class="column VidArt">
+    <div class="content">
+      <img class="zoom" src="Game 11.jpg" alt="Okami" style="width:100%">
+      <h3>Okami</h3>
+      <p> This is a game I never had the chance to play, and it's a shame since the game really looks like a Japanese caligraphy painting but in 3d. Too  bad I was grounded when it came out.  </p>
+    </div>
+  </div>
+
+  <div class="column VidArt">
+    <div class="content">
+      <img class="zoom" src="Game 12.jpg" alt="Mario" style="width:100%">
+      <h3>Super Mario Bros. 3</h3>
+      <p> This is my favorite Super Mario game ever. It has a great difficulty curve and really fun levels and powerups. It even had a neat 80's cartoon, the boxart is VERY bright and yellow. It stands out garishly among a shelf of other Nintendo games. </p>
+    </div>
+  </div>
+
+<!-- MOVIE POSTERS -->
+
+  <div class="column Movi">
+    <div class="content">
+      <img class="zoom" src="Movie 1.jpg" alt="Movi" style="width:100%">
+      <h3>Jaws</h3>
+      <p>A movie I've never seen. I was supposed to watch it one night and fell asleep instead. It definitely has a shark in it. </p>
+    </div>
+  </div>
+
+<div class="column Movi">
+  <div class="content">
+    <img class="zoom" src="Movie 2.jpg" alt="Movi" style="width:100%">
+    <h3>The Thing (1982)</h3>
+    <p>One of the best horror movies I've ever seen. It's pretty brutal so it's not for everyone. </p>
+  </div>
+</div>
+
+<div class="column Movi">
+ <div class="content">
+  <img class="zoom" src="movie 3.jpg" alt="Movi" style="width:100%">
+  <h3>Casablanca</h3>
+  <p>An interesting movie that I watched this summer. A nice little love story with good music. I first learned about this movie because of a World History course in High School, and then I shoved it into the back of my mind until summer. </p>
+ </div>
+</div>
+
+<div class="column Movi">
+ <div class="content">
+  <img class="zoom" src="movie 4.jpg" alt="Movi" style="width:100%">
+  <h3>The Batman</h3>
+  <p> This is my favorite (and in my opinion best) Batman film. It has great music out of all of them, great actors that play great interpretations of the characters, and it follows an intriguing storyline that I never get bored of. The movie is visually spectacular as well. I'm so excited for the sequel, but I may have to wait a couple years for it.  </p>
+ </div>
+</div>
+
+<div class="column Movi">
+ <div class="content">
+  <img class="zoom" src="movie 5.jpg" alt="Movi" style="width:100%">
+  <h3>9</h3>
+  <p> One of my favorite movies as a kid. It has really interesting character designs and some creepy robots.  </p>
+ </div>
+</div>
+
+<div class="column Movi">
+ <div class="content">
+  <img class="zoom" src="movie 6.jpg" alt="Movi" style="width:100%">
+  <h3>Citizen Kane</h3>
+  <p> Another iteresting movie that I watched this summer. Maybe not the best film of all time, but an insanely good one that holds up well. </p>
+ </div>
+</div>
+
+<div class="column Movi">
+ <div class="content">
+  <img class="zoom" src="movie 7.jpg" alt="Movi" style="width:100%">
+  <h3>Star Wars</h3>
+  <p> A cultural revolution, this movie changed EVERYTHING. This was one of the most influential pieces of media ever created and spawned stories in all mediums, like books, music, video games, and statues/sculptures. The unfortunate thing about it is that you can't legally watch the original 1977 version, just the new tampered versions. </p>
+ </div>
+</div>
+
+<div class="column Movi">
+ <div class="content">
+  <img class="zoom" src="movie 8.jpg" alt="Movi" style="width:100%">
+  <h3>GoodFellas</h3>
+  <p> This is a great ganster/mafia film. This is considered to be one of the best films of all time by many people, especially critics. While it is entertaining, I don't entirely agree with that statement. I enjoy Casino slightly more despite not being as iconic.  </p>
+ </div>
+</div>
+
+<div class="column Movi">
+ <div class="content">
+  <img class="zoom" src="movie 9.jpg" alt="Movi" style="width:100%">
+  <h3>E.T.</h3>
+  <p>I've never watched this movie before, I've only seen clips of it. I just really like this promotional art. </p>
+ </div>
+</div>
+
+<div class="column Movi">
+ <div class="content">
+  <img class="zoom" src="movie 10.jpg" alt="Movi" style="width:100%">
+  <h3>2001 a Space Odyssey</h3>
+  <p>This film still holds up and deserves the praise it gets. It looks so good it is used as evidence to support moon landing conspiracy theories.  </p>
+ </div>
+</div>
+
+<div class="column Movi">
+ <div class="content">
+  <img class="zoom" src="movie 11.jpg" alt="Movi" style="width:100%">
+  <h3>My Neighbor Totoro</h3>
+  <p>One of the most iconic animated films ever made, and I watched it too late I should have watched this as a kid and not a 21 year old man. </p>
+ </div>
+</div>
+
+<div class="column Movi">
+ <div class="content">
+  <img class="zoom" src="movie 12.jpg" alt="Movi" style="width:100%">
+  <h3>Home Alone</h3>
+  <p>A movie that I watched recently (about two weeks ago if you're reading this after November 24th) with my father and younger brother. It was a very good time, it was quite funny and had felt quite unique, even though I've seen Home Alone 2 before. </p>
+ </div>
+</div>
+
+<!-- BOOK COVERS -->
+
+<div class="column Book">
+ <div class="content">
+  <img class="zoom" src="book 1.jpg" alt="Book" style="width:100%">
+  <h3>The Divine Comedy</h3>
+  <p>A lot of religious stories and imagery of hell came from this book, and most of it was just made up out of nowhere. </p>
+ </div>
+</div>
+
+<div class="column Book">
+ <div class="content">
+  <img class="zoom" src="book 2.jpg" alt="Book" style="width:100%">
+  <h3>The Catcher in the Rye</h3>
+  <p>A book I read in highschool that I never quite understood the point of. I thought the main character was a bit of a loser. </p>
+ </div>
+</div>
+
+<div class="column Book">
+ <div class="content">
+  <img class="zoom" src="book 3.jpg" alt="Book" style="width:100%">
+  <h3>Dune Messiah</h3>
+  <p>The sequel to the first Dune book, I read it immediately after watching Dune part 2 this year. It's not as good but still interesting. </p>
+ </div>
+</div>
+
+<div class="column Book">
+ <div class="content">
+  <img class="zoom" src="book 4.jpg" alt="Book" style="width:100%">
+  <h3>The Necronomicon</h3>
+  <p>A collection of some of the most famous H.P Lovecraft stories, some are horror stories, others feel like weird rants from a madman. </p>
+ </div>
+</div>
+
+<div class="column Book">
+ <div class="content">
+  <img class="zoom" src="book 5.jpg" alt="Book" style="width:100%">
+  <h3>Uzumaki</h3>
+  <p> The first horror manga(Japanese comic book) I ever read. It's such a strange idea, it's about spirals. </p>
+ </div>
+</div>
+
+<div class="column Book">
+ <div class="content">
+  <img class="zoom" src="book 6.jpg" alt="Book" style="width:100%">
+  <h3>Bridge 108</h3>
+  <p>A book I read in highschool for a book report in the first month of Covid lockdowns. It has a cool dystopian world that has really simple characters. 7/10 </p>
+ </div>
+</div>
+
+<div class="column Book">
+ <div class="content">
+  <img class="zoom" src="book 7.jpg" alt="Book" style="width:100%">
+  <h3>A Thousand Splendid Suns</h3>
+  <p> A novel I read in high school that left an impact on me. I'm not sure how to summarize it succinctly. </p>
+ </div>
+</div>
+
+<div class="column Book">
+ <div class="content">
+  <img class="zoom" src="book 8.jpg" alt="Book" style="width:100%">
+  <h3>Lord of the Rings: Fellowship of the Ring</h3>
+  <p> I read this book because I thought the movie was bad, I'm glad I did I LOVED the book so much more. </p>
+ </div>
+</div>
+
+<div class="column Book">
+ <div class="content">
+  <img class="zoom" src="book 9.jpg" alt="Book" style="width:100%">
+  <h3>Batman: The Long Halloween</h3>
+  <p> A cool little mystery comic, it made me realize that Batman outside of the movies is cool too. </p>
+ </div>
+</div>
+
+<div class="column Book">
+ <div class="content">
+  <img class="zoom" src="book 10.jpg" alt="Book" style="width:100%">
+  <h3>Watchmen</h3>
+  <p>One of the most well written comic books ever. The subject matter isn't for everyone however, its not a fun read. </p>
+ </div>
+</div>
+
+<div class="column Book">
+ <div class="content">
+  <img class="zoom" src="book 11.jpg" alt="Book" style="width:100%">
+  <h3>Holes</h3>
+  <p>My favorite book from childhood, I read this book nearly 10 times as a kid. The film is not as good.  </p>
+ </div>
+</div>
+
+<div class="column Book">
+ <div class="content">
+  <img class="zoom" src="book 12.jpg" alt="Book" style="width:100%">
+  <h3>The Shining</h3>
+  <p>I've seem the film and didn't think it was that scary, people say the novel is better so I may give it a shot (once it's on sale). </p>
+ </div>
+</div>
+
+<!-- REGULAR ART -->
+
+  <div class="column RegArt">
+    <div class="content">
+      <img class="zoom" src="Art 1.jpg" alt="RegArt" style="width:100%">
+      <h3>The Great Wave of Kanagawa</h3>
+      <p>This is a painting that I've seen sold everywhere, and parodied. It is so odd seeing the original version of this painting, it looks beautiful... but I've seen too many monsters drawn into the painting, the regular one looks empty to me now.   </p>
+    </div>
+  </div>
+
+  <div class="column RegArt">
+    <div class="content">
+      <img class="zoom" src="Art 2.jpg" alt="RegArt" style="width:100%">
+      <h3>Starry Night </h3>
+      <p>This is a classic painting, everyone knows this one. I've seen many people say that this is the best painting ever made, but I disagree. There were near photorealistic paintings in the 1600s, its great but not the best (in my opinion). </p>
+    </div>
+  </div>
+
+  <div class="column RegArt">
+    <div class="content">
+      <img class="zoom" src="Art 3.jpg" alt="RegArt" style="width:100%">
+      <h3>Impression, Sunrise</h3>
+      <p>I love how the water looks in this painting, it makes me oddly thirsty. I drank some water halfway through writing my thoughts about the painting. You should too! Stay hydrated!</p>
+    </div>
+  </div>
+
+  <div class="column RegArt">
+    <div class="content">
+      <img class="zoom" src="Art 4.jpg" alt="RegArt" style="width:100%">
+      <h3>Stańczyk</h3>
+      <p>I first saw this painting because it was used as a thumbnail for a video that had a ton of evil sounding classical music. It looks silly. </p>
+    </div>
+  </div>
+
+  <div class="column RegArt">
+    <div class="content">
+      <img class="zoom" src="Art 9.jpg" alt="RegArt" style="width:100%">
+      <h3>Night Hawks</h3>
+      <p>This is a great painting. I would love to go to a diner late at night in a full suit and tie with a fedora. Unfortunately fedoras are out of style and the only diner near me that opens late is Denny's...</p>
+    </div>
+  </div>
+
+  <div class="column RegArt">
+    <div class="content">
+      <img class="zoom" src="Art 6.png" alt="RegArt" style="width:100%">
+      <h3>Self-Portrait at the Age of 34 (1640)</h3>
+      <p>I have no idea what this painting is, or who this is. I looked up famous paintings on google and was given a ton of really nice paintings. I thought that this image was interesting because of its shape.</p>
+    </div>
+  </div>
+
+  <div class="column RegArt">
+    <div class="content">
+      <img class="zoom" src="Art 7.jpg" alt="RegArt" style="width:100%">
+      <h3>The Astronomer</h3>
+      <p>I love this painting. I feel like this image when I read someone else's code in a group project.</p>
+    </div>
+  </div>
+
+  <div class="column RegArt">
+    <div class="content">
+      <img class="zoom" src="Art 8.jpg" alt="RegArt" style="width:100%">
+      <h3>Girl with a Pearl Earring</h3>
+      <p>The title didn't lie. This really is a girl with a pearl earring. She is making the same expression as an employee when you ask them what isle you can find a specific item at a store.</p>
+    </div>
+  </div>
+
+  <div class="column RegArt">
+    <div class="content">
+      <img class="zoom" src="Art 5.jpg" alt="RegArt" style="width:100%">
+      <h3>Portrait of Helen Klimt</h3>
+      <p>Another portrait of someone I have no idea or context for, I did some surface level research in this "Helen Klimt" person and didn't find anything. She has a good haircut though. </p>
+    </div>
+  </div>
+
+  <div class="column RegArt">
+    <div class="content">
+      <img class="zoom" src="Art 10.jpg" alt="RegArt" style="width:100%">
+      <h3>Blue Horse I</h3>
+      <p>I feel like there may be something deeper to this painting, I'm not sure why someone would paint a horse (which is difficult) and then make it blue. Weird. </p>
+    </div>
+  </div>
+
+  <div class="column RegArt">
+    <div class="content">
+      <img class="zoom" src="Art 11.jpg" alt="RegArt" style="width:100%">
+      <h3>Saint Francis of Assisi in His Tomb</h3>
+      <p>I thought that this painting looked visually striking, it instantly caught my attention and I couldn't help but throw it in. The shading and cloth folds look so good, I wish I could paint like this!</p>
+    </div>
+  </div>
+
+  <div class="column RegArt">
+    <div class="content">
+      <img class="zoom" src="Art 12.png" alt="RegArt" style="width:100%">
+      <h3>Mona Lisa</h3>
+      <p>I don't have any context for this painting. It is famous, just because? No answer or explanation has ever satisfied me personally.</p>
+    </div>
+  </div>
+
+</div>
+<!-- End gallery -->
+</div>
+
+<script src= "MyGalleryScript.js"> </script>
+
+</body>
+</html>
